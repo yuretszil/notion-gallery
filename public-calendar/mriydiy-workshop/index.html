@@ -196,12 +196,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-  const swiperThumb = new Swiper('.swiper-thumb', {
+ const swiperThumb = new Swiper('.swiper-thumb', {
     slidesPerView: 'auto',
     spaceBetween: 10,
     watchSlidesProgress: true,
     slideToClickedSlide: true,
-    // прибрали centeredSlides
 });
 
 const swiperMain = new Swiper('.swiper-main', {
@@ -215,22 +214,29 @@ const swiperMain = new Swiper('.swiper-main', {
     },
     on: {
         slideChange: function () {
-            const index = this.realIndex;
-            const totalThumbs = swiperThumb.slides.length;
-            const visibleThumbs = swiperThumb.params.slidesPerView === 'auto' 
-                ? Math.floor(swiperThumb.width / swiperThumb.slides[0].offsetWidth)
-                : swiperThumb.params.slidesPerView;
-
-            const centerIndex = index - Math.floor(visibleThumbs / 2);
-
-            // якщо є місце вліво — центруємо
-            if (centerIndex > 0 && index < totalThumbs - visibleThumbs) {
-                swiperThumb.slideTo(centerIndex, 300);
-            } else {
-                swiperThumb.slideTo(index, 300); // в іншому випадку показуємо як є
-            }
+            centerActiveThumb(this.realIndex);
         }
     }
+});
+
+// окрема функція для центрування активного слайду
+function centerActiveThumb(index) {
+    const totalThumbs = swiperThumb.slides.length;
+    const slideWidth = swiperThumb.slides[0].offsetWidth;
+    const visibleThumbs = Math.floor(swiperThumb.width / slideWidth);
+    const centerIndex = index - Math.floor(visibleThumbs / 2);
+
+    if (centerIndex > 0 && index < totalThumbs - visibleThumbs) {
+        swiperThumb.slideTo(centerIndex, 300);
+    } else {
+        swiperThumb.slideTo(index, 300);
+    }
+}
+
+// додатково: слухаємо кліки по мініатюрах
+swiperThumb.on('click', function (swiper) {
+    const clickedIndex = swiper.clickedIndex;
+    centerActiveThumb(clickedIndex);
 });
     </script>
 </body>
