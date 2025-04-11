@@ -32,12 +32,23 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const swiperMain = new Swiper('.swiper-main', {
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
+        const swiperThumb = new Swiper('.swiper-thumb', {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    watchSlidesProgress: true,
+    slideToClickedSlide: true,
+});
+
+const swiperMain = new Swiper('.swiper-main', {
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    thumbs: {
+        swiper: swiperThumb,
+    },
+});
     </script>
 </body>
 </html>
