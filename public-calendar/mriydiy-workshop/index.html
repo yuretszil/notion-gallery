@@ -195,31 +195,43 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-   <script>
-    const swiperThumb = new Swiper('.swiper-thumb', {
-        slidesPerView: 'auto',
-        spaceBetween: 10,
-        watchSlidesProgress: true,
-        centeredSlides: true,
-        slideToClickedSlide: true,
-    });
+    <script>
+  const swiperThumb = new Swiper('.swiper-thumb', {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    watchSlidesProgress: true,
+    slideToClickedSlide: true,
+    // прибрали centeredSlides
+});
 
-    const swiperMain = new Swiper('.swiper-main', {
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        thumbs: {
-            swiper: swiperThumb,
-        },
-        on: {
-            slideChange: function () {
-                // Центруємо відповідну мініатюру вручну
-                swiperThumb.slideToLoop(this.realIndex, 300);
-            },
+const swiperMain = new Swiper('.swiper-main', {
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    thumbs: {
+        swiper: swiperThumb,
+    },
+    on: {
+        slideChange: function () {
+            const index = this.realIndex;
+            const totalThumbs = swiperThumb.slides.length;
+            const visibleThumbs = swiperThumb.params.slidesPerView === 'auto' 
+                ? Math.floor(swiperThumb.width / swiperThumb.slides[0].offsetWidth)
+                : swiperThumb.params.slidesPerView;
+
+            const centerIndex = index - Math.floor(visibleThumbs / 2);
+
+            // якщо є місце вліво — центруємо
+            if (centerIndex > 0 && index < totalThumbs - visibleThumbs) {
+                swiperThumb.slideTo(centerIndex, 300);
+            } else {
+                swiperThumb.slideTo(index, 300); // в іншому випадку показуємо як є
+            }
         }
-    });
-</script>
+    }
+});
+    </script>
 </body>
 </html>
