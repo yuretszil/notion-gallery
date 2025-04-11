@@ -41,13 +41,13 @@
         .swiper-pagination-thumb .swiper-slide {
             width: 120px; /* Ширина мініатюри */
             height: 80px; /* Висота мініатюри */
-            opacity: 0.6; /* Зробіть мініатюри менш помітними за замовчуванням */
+            opacity: 0.75; /* Зробіть мініатюри менш помітними за замовчуванням */
             cursor: pointer;
         }
 
         .swiper-pagination-thumb .swiper-slide-thumb-active {
             opacity: 1; /* Активна мініатюра */
-            outline: 2px solid #000; /* Обведіть активну мініатюру */
+            outline: 2px solid #000; /* Обводка для активної мініатюри */
         }
 
         .swiper-pagination-thumb .swiper-slide img {
@@ -197,40 +197,44 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         const swiperThumb = new Swiper('.swiper-thumb', {
-    slidesPerView: 'auto',
-    spaceBetween: 10,
-    watchSlidesProgress: true,
-    slideToClickedSlide: true,
-    centeredSlides: false,
-});
+            slidesPerView: 'auto',
+            spaceBetween: 10,
+            watchSlidesProgress: true,
+            slideToClickedSlide: true,
+            centeredSlides: false,
+        });
 
-const swiperMain = new Swiper('.swiper-main', {
-    loop: true,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    thumbs: {
-        swiper: swiperThumb,
-    },
-});
+        const swiperMain = new Swiper('.swiper-main', {
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            thumbs: {
+                swiper: swiperThumb,
+            },
+        });
 
-swiperMain.controller.control = swiperThumb;
-swiperThumb.controller.control = swiperMain;
+        swiperMain.controller.control = swiperThumb;
+        swiperThumb.controller.control = swiperMain;
 
-swiperMain.on('slideChange', function () {
-    if (swiperThumb && swiperThumb.activeIndex !== undefined) {
-        swiperThumb.slideTo(swiperMain.activeIndex - Math.floor(swiperThumb.slidesPerView / 2), 300, false);
-    }
-});
+        swiperMain.on('slideChange', function () {
+            if (swiperThumb && swiperThumb.activeIndex !== undefined) {
+                const activeIndexThumb = swiperMain.activeIndex;
+                const slidesPerViewThumb = swiperThumb.slidesPerView;
+                const centeredIndex = activeIndexThumb - Math.floor(slidesPerViewThumb / 2);
+                swiperThumb.slideTo(centeredIndex, 300, false);
+            }
+        });
 
-swiperMain.on('init', function () {
-    if (swiperThumb && swiperThumb.activeIndex !== undefined && swiperThumb.params.slidesPerView % 2 === 0) {
-        swiperThumb.slideTo(0, 0, false);
-    } else if (swiperThumb && swiperThumb.activeIndex !== undefined) {
-        swiperThumb.slideTo(swiperMain.activeIndex - Math.floor(swiperThumb.slidesPerView / 2), 0, false);
-    }
-});
+        swiperMain.on('init', function () {
+            if (swiperThumb && swiperThumb.activeIndex !== undefined) {
+                const activeIndexThumb = 0;
+                const slidesPerViewThumb = swiperThumb.slidesPerView;
+                const centeredIndex = activeIndexThumb - Math.floor(slidesPerViewThumb / 2);
+                swiperThumb.slideTo(centeredIndex, 0, false);
+            }
+        });
     </script>
 </body>
 </html>
