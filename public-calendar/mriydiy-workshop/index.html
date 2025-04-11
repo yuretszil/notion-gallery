@@ -196,23 +196,23 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const swiperMain = new Swiper('.swiper-main', {
+        const swiperThumb = new Swiper('.swiper-thumb', {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    watchSlidesProgress: true,
+    slideToClickedSlide: true,
+    centeredSlides: false,
+});
+
+const swiperMain = new Swiper('.swiper-main', {
     loop: true,
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
     thumbs: {
-        swiper: swiperThumb, // Передаємо вже ініціалізований swiperThumb
+        swiper: swiperThumb,
     },
-});
-
-const swiperThumb = new Swiper('.swiper-thumb', {
-    slidesPerView: 'auto',
-    spaceBetween: 10,
-    watchSlidesProgress: true,
-    slideToClickedSlide: true, // Дозволяє переходити до слайду по кліку на мініатюру
-    centeredSlides: false, // Спочатку вимикаємо центрування
 });
 
 swiperMain.controller.control = swiperThumb;
@@ -224,7 +224,6 @@ swiperMain.on('slideChange', function () {
     }
 });
 
-// Додатково, щоб при ініціалізації також центрирувати першу мініатюру (якщо slidesPerView парне)
 swiperMain.on('init', function () {
     if (swiperThumb && swiperThumb.activeIndex !== undefined && swiperThumb.params.slidesPerView % 2 === 0) {
         swiperThumb.slideTo(0, 0, false);
