@@ -49,6 +49,26 @@ const swiperMain = new Swiper('.swiper-main', {
         swiper: swiperThumb,
     },
 });
+
+swiperMain.on('slideChange', function () {
+    if (swiperThumb && swiperThumb.activeIndex !== undefined) {
+        const thumbActiveClass = 'swiper-slide-thumb-active';
+        const activeThumb = swiperThumb.slides[swiperMain.activeIndex];
+
+        if (activeThumb) {
+            swiperThumb.slideTo(swiperMain.activeIndex - Math.floor(swiperThumb.slidesPerView / 2), 300, false);
+        }
+    }
+});
+
+// Додатково, щоб при ініціалізації також центрувати першу мініатюру (якщо slidesPerView парне)
+swiperMain.on('init', function () {
+    if (swiperThumb && swiperThumb.activeIndex !== undefined && swiperThumb.params.slidesPerView % 2 === 0) {
+        swiperThumb.slideTo(0, 0, false);
+    } else if (swiperThumb && swiperThumb.activeIndex !== undefined) {
+        swiperThumb.slideTo(0 - Math.floor(swiperThumb.slidesPerView / 2), 0, false);
+    }
+});
     </script>
 </body>
 </html>
