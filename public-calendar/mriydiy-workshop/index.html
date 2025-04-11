@@ -201,7 +201,6 @@
     spaceBetween: 10,
     watchSlidesProgress: true,
     slideToClickedSlide: true,
-    centeredSlides: false,
 });
 
 const swiperMain = new Swiper('.swiper-main', {
@@ -213,12 +212,12 @@ const swiperMain = new Swiper('.swiper-main', {
     thumbs: {
         swiper: swiperThumb,
     },
+    controller: {
+        control: swiperThumb,
+    }
 });
 
-swiperMain.controller.control = swiperThumb;
 swiperThumb.controller.control = swiperMain;
-
-// Видаляємо обробники подій slideChange та init, пов'язані з центруванням
     </script>
 </body>
 </html>
