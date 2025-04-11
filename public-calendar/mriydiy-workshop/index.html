@@ -196,21 +196,24 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const swiperMain = new Swiper('.swiper-main', {
-            loop: true, // Зациклюємо слайдер
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            thumbs: {
-                swiper: {
-                    el: '.swiper-thumb',
-                    slidesPerView: 'auto', // Відображаємо всі мініатюри, якщо вміщаються
-                    spaceBetween: 10, // Відстань між мініатюрами
-                    watchSlidesProgress: true, // Синхронізуємо прогрес основного слайдера
-                },
-            },
-        });
-    </script>
+    const swiperThumb = new Swiper('.swiper-thumb', {
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        watchSlidesProgress: true,
+        centeredSlides: true, // Центрує активну мініатюру
+        slideToClickedSlide: true, // Додаємо можливість перемикатись при кліку на мініатюру
+    });
+
+    const swiperMain = new Swiper('.swiper-main', {
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+            swiper: swiperThumb, // 🔗 Підключаємо слайдер мініатюр
+        },
+    });
+</script>
 </body>
 </html>
