@@ -3,113 +3,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css">
+  <title>Галерея: Поділля</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <style>
     body {
       font-family: sans-serif;
       margin: 0;
       padding: 2rem;
       background: #fdfdfd;
+      display: flex;
+      justify-content: center;
     }
     h1 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
     }
-    #lightgallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    /* Контейнер галереї */
+    .gallery-container {
+      max-width: 1200px;
+      width: 100%;
     }
-    #lightgallery a img {
-      width: 200px;
+    /* Стилі для головного слайдера */
+    .swiper-container {
+      width: 100%;
+      height: 600px;
+      position: relative;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: auto;
       border-radius: 8px;
-      transition: 0.3s ease;
     }
-    #lightgallery a img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    /* Стилі для мініатюр */
+    .swiper-thumbs {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .swiper-thumbs .swiper-slide {
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .swiper-thumbs .swiper-slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    /* Стилі для стрілок */
+    .swiper-button-next, .swiper-button-prev {
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
+  <h1>Галерея: Поділля</h1>
+  
+  <div class="gallery-container">
+    <!-- Основний слайдер -->
+    <div class="swiper-container main-gallery">
+      <div class="swiper-wrapper">
+        <!-- Слайди з фотографіями -->
+        <div class="swiper-slide"><img src="img1.jpg" alt="Фото 1"></div>
+        <div class="swiper-slide"><img src="img2.jpg" alt="Фото 2"></div>
+        <div class="swiper-slide"><img src="img3.jpg" alt="Фото 3"></div>
+        <div class="swiper-slide"><img src="img4.jpg" alt="Фото 4"></div>
+        <div class="swiper-slide"><img src="img5.jpg" alt="Фото 5"></div>
+        <div class="swiper-slide"><img src="img6.jpg" alt="Фото 6"></div>
+        <div class="swiper-slide"><img src="img7.jpg" alt="Фото 7"></div>
+        <div class="swiper-slide"><img src="img8.jpg" alt="Фото 8"></div>
+        <div class="swiper-slide"><img src="img9.jpg" alt="Фото 9"></div>
+        <div class="swiper-slide"><img src="img10.jpg" alt="Фото 10"></div>
+        <div class="swiper-slide"><img src="img11.jpg" alt="Фото 11"></div>
+        <div class="swiper-slide"><img src="img12.jpg" alt="Фото 12"></div>
+        <div class="swiper-slide"><img src="img13.jpg" alt="Фото 13"></div>
+        <div class="swiper-slide"><img src="img14.jpg" alt="Фото 14"></div>
+        <div class="swiper-slide"><img src="img15.jpg" alt="Фото 15"></div>
+        <div class="swiper-slide"><img src="img16.jpg" alt="Фото 16"></div>
+        <div class="swiper-slide"><img src="img17.jpg" alt="Фото 17"></div>
+        <div class="swiper-slide"><img src="img18.jpg" alt="Фото 18"></div>
+        <div class="swiper-slide"><img src="img19.jpg" alt="Фото 19"></div>
+        <div class="swiper-slide"><img src="img20.jpg" alt="Фото 20"></div>
+        <div class="swiper-slide"><img src="img21.jpg" alt="Фото 21"></div>
+      </div>
+      <!-- Стрілки -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
 
-<div id="lightgallery">
-  <a href="./img1.jpg">
-    <img src="./img1.jpg" alt="Фото 1">
-  </a>
-  <a href="./img2.jpg">
-    <img src="./img2.jpg" alt="Фото 2">
-  </a>
-  <a href="./img3.jpg">
-    <img src="./img3.jpg" alt="Фото 3">
-  </a>
-  <a href="./img4.jpg">
-    <img src="./img4.jpg" alt="Фото 4">
-  </a>
-  <a href="./img5.jpg">
-    <img src="./img5.jpg" alt="Фото 2">
-  </a>
-  <a href="./img6.jpg">
-    <img src="./img6.jpg" alt="Фото 3">
-  </a>
-  <a href="./img7.jpg">
-    <img src="./img7.jpg" alt="Фото 1">
-  </a>
-  <a href="./img8.jpg">
-    <img src="./img8.jpg" alt="Фото 2">
-  </a>
-  <a href="./img9.jpg">
-    <img src="./img9.jpg" alt="Фото 3">
-  </a>
-   <a href="./img10.jpg">
-    <img src="./img10.jpg" alt="Фото 1">
-  </a>
-  <a href="./img11.jpg">
-    <img src="./img11.jpg" alt="Фото 2">
-  </a>
-  <a href="./img12.jpg">
-    <img src="./img12.jpg" alt="Фото 3">
-  </a>
-  <a href="./img13.jpg">
-    <img src="./img13.jpg" alt="Фото 4">
-  </a>
-  <a href="./img14.jpg">
-    <img src="./img14.jpg" alt="Фото 2">
-  </a>
-  <a href="./img15.jpg">
-    <img src="./img15.jpg" alt="Фото 3">
-  </a>
-  <a href="./img16.jpg">
-    <img src="./img16.jpg" alt="Фото 1">
-  </a>
-  <a href="./img17.jpg">
-    <img src="./img17.jpg" alt="Фото 2">
-  </a>
-  <a href="./img18.jpg">
-    <img src="./img18.jpg" alt="Фото 3">
-  </a>
-  <a href="./img19.jpg">
-    <img src="./img19.jpg" alt="Фото 1">
-  </a>
-  <a href="./img20.jpg">
-    <img src="./img20.jpg" alt="Фото 2">
-  </a>
-  <a href="./img21.jpg">
-    <img src="./img21.jpg" alt="Фото 3">
-  </a>
-</div>
+    <!-- Мініатюри (thumbs) -->
+    <div class="swiper-container swiper-thumbs">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img1.jpg" alt="Фото 1"></div>
+        <div class="swiper-slide"><img src="img2.jpg" alt="Фото 2"></div>
+        <div class="swiper-slide"><img src="img3.jpg" alt="Фото 3"></div>
+        <div class="swiper-slide"><img src="img4.jpg" alt="Фото 4"></div>
+        <div class="swiper-slide"><img src="img5.jpg" alt="Фото 5"></div>
+        <div class="swiper-slide"><img src="img6.jpg" alt="Фото 6"></div>
+        <div class="swiper-slide"><img src="img7.jpg" alt="Фото 7"></div>
+        <div class="swiper-slide"><img src="img8.jpg" alt="Фото 8"></div>
+        <div class="swiper-slide"><img src="img9.jpg" alt="Фото 9"></div>
+        <div class="swiper-slide"><img src="img10.jpg" alt="Фото 10"></div>
+        <div class="swiper-slide"><img src="img11.jpg" alt="Фото 11"></div>
+        <div class="swiper-slide"><img src="img12.jpg" alt="Фото 12"></div>
+        <div class="swiper-slide"><img src="img13.jpg" alt="Фото 13"></div>
+        <div class="swiper-slide"><img src="img14.jpg" alt="Фото 14"></div>
+        <div class="swiper-slide"><img src="img15.jpg" alt="Фото 15"></div>
+        <div class="swiper-slide"><img src="img16.jpg" alt="Фото 16"></div>
+        <div class="swiper-slide"><img src="img17.jpg" alt="Фото 17"></div>
+        <div class="swiper-slide"><img src="img18.jpg" alt="Фото 18"></div>
+        <div class="swiper-slide"><img src="img19.jpg" alt="Фото 19"></div>
+        <div class="swiper-slide"><img src="img20.jpg" alt="Фото 20"></div>
+        <div class="swiper-slide"><img src="img21.jpg" alt="Фото 21"></div>
+      </div>
+    </div>
+  </div>
 
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script>
-<script>
-  lightGallery(document.getElementById('lightgallery'), {
-    plugins: [lgThumbnail, lgZoom],
-    speed: 400,
-    thumbnail: true
-  });
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    // Ініціалізація основного слайдера
+    const mainSwiper = new Swiper('.main-gallery', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: {
+          el: '.swiper-thumbs',
+          slidesPerView: 5,
+          spaceBetween: 10,
+          slideToClickedSlide: true
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
