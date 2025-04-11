@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Галерея: Поділля</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #fdfdfd;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    #lightgallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    #lightgallery a img {
+      width: 200px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+    #lightgallery a img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<h1>Фото з Поділля</h1>
+<div id="lightgallery">
+  <a href="./img1.jpg">
+    <img src="./img1.jpg" alt="Фото 1">
+  </a>
+  <a href="./img2.jpg">
+    <img src="./img2.jpg" alt="Фото 2">
+  </a>
+  <a href="./img3.jpg">
+    <img src="./img3.jpg" alt="Фото 3">
+  </a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script>
+<script>
+  lightGallery(document.getElementById('lightgallery'), {
+    plugins: [lgThumbnail, lgZoom],
+    speed: 400,
+    thumbnail: true
+  });
+</script>
+
+</body>
+</html>
