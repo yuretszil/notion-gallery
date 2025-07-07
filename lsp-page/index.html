@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Галерея Swiper.js</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .gallery-wrapper {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .swiper-main {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      background-color: #000;
+      position: relative;
+    }
+
+    .swiper-main .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-main img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .swiper-thumb {
+      margin-top: 12px;
+    }
+
+    .swiper-thumb .swiper-slide {
+      width: 120px;
+      height: 80px;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+
+    .swiper-thumb .swiper-slide-thumb-active {
+      opacity: 1;
+      outline: 2px solid #000;
+    }
+
+    .swiper-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-wrapper">
+    <!-- Головна галерея -->
+    <div class="swiper swiper-main">
+      <div class="swiper-wrapper">
+        <!-- Основні зображення -->
+        <!-- Згенеровано автоматично -->
+        <!-- img1.jpg — img24.jpg -->
+        <!-- BEGIN MAIN SLIDES -->
+        <div class="swiper-slide"><img src="img1.jpg" alt="Фото 1" /></div>
+        <div class="swiper-slide"><img src="img2.jpg" alt="Фото 2" /></div>
+        <div class="swiper-slide"><img src="img3.jpg" alt="Фото 3" /></div>
+        <div class="swiper-slide"><img src="img4.jpg" alt="Фото 4" /></div>
+        <div class="swiper-slide"><img src="img5.jpg" alt="Фото 5" /></div>
+        <div class="swiper-slide"><img src="img6.jpg" alt="Фото 6" /></div>
+        <div class="swiper-slide"><img src="img7.jpg" alt="Фото 7" /></div>
+        <div class="swiper-slide"><img src="img8.jpg" alt="Фото 8" /></div>
+        <div class="swiper-slide"><img src="img9.jpg" alt="Фото 9" /></div>
+        <div class="swiper-slide"><img src="img10.jpg" alt="Фото 10" /></div>
+        <div class="swiper-slide"><img src="img11.jpg" alt="Фото 11" /></div>
+        <div class="swiper-slide"><img src="img12.jpg" alt="Фото 12" /></div>
+        <div class="swiper-slide"><img src="img13.jpg" alt="Фото 13" /></div>
+        <div class="swiper-slide"><img src="img14.jpg" alt="Фото 14" /></div>
+        <div class="swiper-slide"><img src="img15.jpg" alt="Фото 15" /></div>
+        <div class="swiper-slide"><img src="img16.jpg" alt="Фото 16" /></div>
+        <div class="swiper-slide"><img src="img17.jpg" alt="Фото 17" /></div>
+
+        <!-- END MAIN SLIDES -->
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+    <!-- Мініатюри -->
+    <div class="swiper swiper-thumb">
+      <div class="swiper-wrapper">
+        <!-- Мініатюри зображень -->
+        <!-- BEGIN THUMB SLIDES -->
+           <div class="swiper-slide"><img src="img1.jpg" alt="Фото 1" /></div>
+            <div class="swiper-slide"><img src="img2.jpg" alt="Фото 2" /></div>
+            <div class="swiper-slide"><img src="img3.jpg" alt="Фото 3" /></div>
+            <div class="swiper-slide"><img src="img4.jpg" alt="Фото 4" /></div>
+            <div class="swiper-slide"><img src="img5.jpg" alt="Фото 5" /></div>
+            <div class="swiper-slide"><img src="img6.jpg" alt="Фото 6" /></div>
+            <div class="swiper-slide"><img src="img7.jpg" alt="Фото 7" /></div>
+            <div class="swiper-slide"><img src="img8.jpg" alt="Фото 8" /></div>
+            <div class="swiper-slide"><img src="img9.jpg" alt="Фото 9" /></div>
+            <div class="swiper-slide"><img src="img10.jpg" alt="Фото 10" /></div>
+            <div class="swiper-slide"><img src="img11.jpg" alt="Фото 11" /></div>
+            <div class="swiper-slide"><img src="img12.jpg" alt="Фото 12" /></div>
+            <div class="swiper-slide"><img src="img13.jpg" alt="Фото 13" /></div>
+            <div class="swiper-slide"><img src="img14.jpg" alt="Фото 14" /></div>
+            <div class="swiper-slide"><img src="img15.jpg" alt="Фото 15" /></div>
+            <div class="swiper-slide"><img src="img16.jpg" alt="Фото 16" /></div>
+            <div class="swiper-slide"><img src="img17.jpg" alt="Фото 17" /></div>
+
+
+        <!-- END THUMB SLIDES -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiperThumb = new Swiper(".swiper-thumb", {
+      slidesPerView: "auto",
+      spaceBetween: 10,
+      watchSlidesProgress: true,
+      slideToClickedSlide: true,
+    });
+
+    const swiperMain = new Swiper(".swiper-main", {
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiperThumb,
+      },
+    });
+  </script>
+</body>
+</html>
